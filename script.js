@@ -29,25 +29,18 @@ function stopwatch() {
     leadingHour + ":" + leadingMin + ":" + leadingSec);
 }
 
-function start() {
-  timerInterval = window.setInterval(stopwatch, 1000);
-  document.getElementById("startStopBtn").innerHTML =
-    '<i class ="fa-solid fa-pause" id = "pause"></i>';
-  timerStatus = "started";
-}
-
-function stop() {
-  window.clearInterval(timerInterval);
-  document.getElementById("startStopBtn").innerHTML =
-    '<i class ="fa-solid fa-play" id = "play"></i>';
-  timerStatus = "started";
-}
 
 startStopbtn.addEventListener("click", function () {
   if (timerStatus === "stopped") {
-    start();
+     timerInterval = window.setInterval(stopwatch, 1000);
+     document.getElementById("startStopBtn").innerHTML =
+      '<i class ="fa-solid fa-pause" id = "pause"></i>';
+     timerStatus = "started";
   } else {
-    stop();
+     window.clearInterval(timerInterval);
+     document.getElementById("startStopBtn").innerHTML =
+    '<i class ="fa-solid fa-play" id = "play"></i>';
+     timerStatus = "started";
   }
 });
 
